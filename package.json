@@ -4,25 +4,26 @@
   "description": "A simple Cypress+Typescript+BDD scaffolding project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "npx cypress open",
+    "run": "npx cypress run"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GarciaDan/cypress-ts-bdd.git"
   },
-  "author": "Daniel Garcia",
-  "license": "ISC",
+  "author": "Daniel Garcia <contacto@danigarcia.org>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/GarciaDan/cypress-ts-bdd/issues"
   },
   "homepage": "https://github.com/GarciaDan/cypress-ts-bdd#readme",
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^17.1.1",
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@types/cypress-cucumber-preprocessor": "^4.0.1",
-    "@types/node": "^20.2.3",
-    "cypress": "^12.12.0",
-    "typescript": "^5.0.4"
+    "@types/cypress-cucumber-preprocessor": "^4.0.5",
+    "@types/node": "^20.11.24",
+    "cypress": "^13.6.6",
+    "typescript": "^5.3.3"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": [

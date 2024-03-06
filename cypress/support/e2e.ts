@@ -1,20 +1,23 @@
-// ***********************************************************
-// This example support/e2e.ts is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
+import "./commands";
 
-// Import commands.js using ES2015 syntax:
-import './commands'
+const COOKIE_POPUP_BUTTON_LOCATOR = "#modal .modal-footer p";
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+function tryToClickButtonUntilFound(
+  buttonLocator: string,
+  poolingIntervalMs: number
+) {
+  return new Cypress.Promise((resolve) => {
+    const intervalId = setInterval(() => {
+      const button = Cypress.$(buttonLocator);
+      if (button.length) {
+        button.trigger("click");
+        clearInterval(intervalId);
+        resolve("Button clicked");
+      }
+    }, poolingIntervalMs);
+  });
+}
+
+before(() => {
+  tryToClickButtonUntilFound(COOKIE_POPUP_BUTTON_LOCATOR, 2000);
+});
