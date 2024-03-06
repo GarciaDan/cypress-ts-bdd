@@ -1,13 +1,17 @@
 {
-    "compilerOptions": {
-      "strict": true,
-      "baseUrl": "../node_modules",
-      "target": "ES2015",
-      "lib": ["ES2015", "dom"],
-      "types": ["cypress", "node"],
-      "moduleResolution": "node"
-      },
-      "include": [
-        "**/*.ts"
+  "compilerOptions": {
+    "target": "ES2021",
+    "lib": ["ES2021", "DOM"],
+    "types": ["cypress", "node"],
+    "module": "Node16",
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@badeball/cypress-cucumber-preprocessor/*": [
+        "./node_modules/@badeball/cypress-cucumber-preprocessor/dist/subpath-entrypoints/*"
       ]
     }
+  },
+  "include": ["**/*.ts"]
+}
