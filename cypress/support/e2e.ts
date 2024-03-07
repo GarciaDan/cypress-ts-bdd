@@ -1,6 +1,6 @@
 import "./commands";
 
-const COOKIE_POPUP_BUTTON_LOCATOR = "#modal .modal-footer p";
+const COOKIE_POPUP_BUTTON_LOCATOR = "#modal:visible .modal-footer p";
 
 function tryToClickButtonUntilFound(
   buttonLocator: string,
@@ -10,6 +10,7 @@ function tryToClickButtonUntilFound(
     const intervalId = setInterval(() => {
       const button = Cypress.$(buttonLocator);
       if (button.length) {
+        console.log("FOUND!");
         button.trigger("click");
         clearInterval(intervalId);
         resolve("Button clicked");

@@ -4,7 +4,7 @@ const ENTRY_AD_URL = "entry_ad";
 const FLOATING_MENU_URL = "floating_menu";
 
 const locators = {
-  modal: "#modal",
+  modal: "#modal:visible",
 };
 
 Given("the user navigates to a page that may show a popup or not", () => {
@@ -18,5 +18,5 @@ When("the user waits for {int} seconds", (seconds: number) => {
 });
 
 Then("the modal popup is not present in the page", () => {
-  cy.get(locators.modal).should("not.be.visible");
+  cy.get(locators.modal).should("not.exist");
 });
